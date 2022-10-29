@@ -18,7 +18,7 @@ ownerは質問NFTを自由に作れます。
         address sender = _msgSender();
         require(balanceOf(sender, 0) >= NFTPrice, "No available balance");
         _burn(sender, 0, NFTPrice);
-        _mint(sender, 1, 1, "0x");
+        _mint(sender, ++NFTId, 1, "0x");
         return true;
     }
 ```
