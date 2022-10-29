@@ -10,6 +10,7 @@ contract Prophetweet is VersioningMerkleDistributer {
         address indexed executer, 
         uint256 indexed tokenId, 
         string twitterId,
+        string tweetNumber,
         uint256 trialNumber
     );
 
@@ -23,11 +24,11 @@ contract Prophetweet is VersioningMerkleDistributer {
         token.setNFTPrice(_NFTPrice);
     }
 
-    function trial(uint256 id, string memory twitterId) public {
+    function trial(uint256 id, string memory twitterId, string memory tweetNumber) public {
       require(id != 0, "not NFT");
       address sender = _msgSender();
       require(token.balanceOf(sender, id) >= 1, "No available balance");
       token.burn(sender, id, 1);
-      emit Trial(sender, id, twitterId, ++trialNumber);
+      emit Trial(sender, id, twitterId, tweetNumber, ++trialNumber);
     }
 }
