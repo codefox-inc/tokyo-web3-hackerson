@@ -1,0 +1,25 @@
+version: '3'
+services:
+  client:
+    build: ./docker/client
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/application
+
+  ethereum:
+    build: ./docker/ethereum
+    tty: true
+    ports:
+      - 8545:8545
+    volumes:
+      - .:/application
+
+  server:
+    build: ./docker/server
+    tty: true
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/application
