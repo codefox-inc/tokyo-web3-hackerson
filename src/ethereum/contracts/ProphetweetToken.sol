@@ -43,7 +43,7 @@ contract ProphetweetToken is ERC1155, Ownable {
         address sender = _msgSender();
         require(balanceOf(sender, 0) >= NFTPrice, "No available balance");
         _burn(sender, 0, NFTPrice);
-        _mint(sender, 1, 1, "0x");
+        _mint(sender, ++NFTId, 1, "0x");
         return true;
     }
 

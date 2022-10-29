@@ -22,7 +22,7 @@ contract VersioningMerkleDistributer is AbstractMerkleDistributer {
 
     function setMerkleRoot(bytes32 newMerkleRoot)
         public
-        onlyAdminOrModeratorRoles
+        onlyOwner
     {
         currentVersion = currentVersion + 1;
         versionToDetailMap[currentVersion].merkleRoot = newMerkleRoot;
@@ -30,7 +30,7 @@ contract VersioningMerkleDistributer is AbstractMerkleDistributer {
 
     function setCurrentVersion(uint256 nextVersion)
         public
-        onlyAdminOrModeratorRoles
+        onlyOwner
     {
         require(nextVersion > 0, "Invalid version info");
 
@@ -44,7 +44,7 @@ contract VersioningMerkleDistributer is AbstractMerkleDistributer {
         uint256 amount,
         bytes32[] calldata proof
     )   external
-        onlyAdminOrModeratorRoles
+        onlyOwner
         override nonReentrant
     {
         (bool isClaimable, string memory message) = getIsClaimable(

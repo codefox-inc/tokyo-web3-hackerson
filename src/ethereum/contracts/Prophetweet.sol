@@ -19,16 +19,16 @@ contract Prophetweet is VersioningMerkleDistributer {
 
     function setNFTPrice(uint256 _NFTPrice)
         public
-        onlyAdminOrModeratorRoles
+        onlyOwner
     {
         token.setNFTPrice(_NFTPrice);
     }
 
     function trial(uint256 id, string memory twitterId, string memory tweetNumber) public {
-      require(id != 0, "not NFT");
-      address sender = _msgSender();
-      require(token.balanceOf(sender, id) >= 1, "No available balance");
-      token.burn(sender, id, 1);
-      emit Trial(sender, id, twitterId, tweetNumber, ++trialNumber);
+        require(id != 0, "not NFT");
+        address sender = _msgSender();
+        require(token.balanceOf(sender, id) >= 1, "No available balance");
+        token.burn(sender, id, 1);
+        emit Trial(sender, id, twitterId, tweetNumber, ++trialNumber);
     }
 }
