@@ -11,3 +11,21 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.ts
 ```
+
+# API
+## PropheteetToken.sol
+### buyNFT
+```solidity
+    function buyNFT() public returns(bool) {
+        address sender = _msgSender();
+        require(balanceOf(sender, 0) >= NFTPrice, "No available balance");
+        _burn(sender, 0, NFTPrice);
+        _mint(sender, 1, 1, "0x");
+        return true;
+    }
+```
+正解トークンでNFTを買います。
+
+## Prophetweet.sol
+### trial
+### claim
