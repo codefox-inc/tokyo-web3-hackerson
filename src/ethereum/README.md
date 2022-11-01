@@ -63,3 +63,13 @@ ownerは質問NFTを自由に作れます。
     }
 ```
 ownerはマークルルートから正解トークンを誰かに与えられる。
+### setMerkleRoot
+```solidity
+    function setMerkleRoot(bytes32 newMerkleRoot)
+        public
+        onlyOwner
+    {
+        currentVersion = currentVersion + 1;
+        versionToDetailMap[currentVersion].merkleRoot = newMerkleRoot;
+    }
+```
