@@ -17,6 +17,7 @@ requires "faker >= 0.14.0"
 requires "flatdb >= 0.2.5"
 requires "redis >= 0.3.0"
 requires "sass >= 0.1.0"
+requires "https://github.com/frodo821/valiant-wallet >= 0.1.0"
 
 task test, "run testament":
   echo staticExec("testament p \"./tests/test_*.nim\"")

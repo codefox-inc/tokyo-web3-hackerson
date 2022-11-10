@@ -23,3 +23,11 @@ services:
       - 8000:8000
     volumes:
       - .:/application
+
+  db:
+    image: postgres:alpine
+    tty: true
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass

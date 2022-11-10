@@ -1,7 +1,8 @@
 import std/asyncdispatch
+import ./migration_user
 
 
 proc main() =
-  discard
+  waitFor user()
 
 main()
